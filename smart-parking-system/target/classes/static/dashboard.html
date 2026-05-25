@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Smart Parking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 font-sans">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Smart Parking</h1>
+                </div>
+                <div class="flex items-center">
+                     <span id="user-email" class="text-slate-600 mr-4"></span>
+                    <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Parking Availability</h2>
+        <div id="parking-grid" class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-4">
+            <div class="text-center p-4">Loading...</div>
+        </div>
+    </main>
+
+    <div id="reservation-modal" class="hidden fixed z-10 inset-0 overflow-y-auto">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <form id="reservation-form">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Reserve Slot <span id="modal-slot-number" class="font-bold text-indigo-600"></span></h3>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-500">Please select how long you want to reserve the slot.</p>
+                             <input type="hidden" id="modal-slot-id">
+                            <label for="duration" class="block text-sm font-medium text-gray-700 mt-4">Reservation End Time</label>
+                            <input type="datetime-local" id="end-time" name="endTime" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 sm:ml-3 sm:w-auto sm:text-sm">
+                            Reserve & Pay (Mock)
+                        </button>
+                        <button type="button" id="modal-close-btn" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+                 <div id="modal-error-message" class="px-6 pb-4 text-center text-red-500 font-medium"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/js/user.js"></script>
+</body>
+</html>

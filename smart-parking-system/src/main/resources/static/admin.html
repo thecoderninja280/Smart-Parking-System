@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smart Parking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 font-sans">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Smart Parking - Admin Panel</h1>
+                </div>
+                <div class="flex items-center">
+                    <span id="admin-email" class="text-slate-600 mr-4"></span>
+                    <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">System Analytics</h2>
+        <div id="stats-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+            <div class="col-span-full text-center p-4">Loading stats...</div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Parking Slot Management</h2>
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Slot Number</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Floor</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Status</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="slots-table-body" class="bg-white divide-y divide-gray-200">
+                    <tr><td colspan="4" class="text-center p-4">Loading slots...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
